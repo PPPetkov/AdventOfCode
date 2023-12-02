@@ -5,8 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class TrebuchetCalibrator{
-    //Part 1
-    public static int findNumber(String str){
+    //Part 1: all digits are in numeric form
+    private static int findNumber(String str){
         int n = 0;
 
         for(int i = 0; i < str.length(); ++i){
@@ -28,8 +28,8 @@ public class TrebuchetCalibrator{
     }
     //
 
-    //Part 2
-    public static String replaceWordsWithDigits(String str){
+    //Part 2: some digits are not in numeric form
+    private static String replaceWordsWithDigits(String str){
         str = str.replace("one", "o1e");
         str = str.replace("two", "t2o");
         str = str.replace("three", "t3e");
@@ -43,7 +43,7 @@ public class TrebuchetCalibrator{
         return str;
     }
     //
-    
+
     public static int calibrate(String filename) throws IOException{
         int result = 0;
 
