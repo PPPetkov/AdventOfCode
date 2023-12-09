@@ -19,4 +19,38 @@ public class Utility {
         reader.close();
         return input;
     }
+
+    public static long findLCM(List<Integer> numbers){
+        long lcm = 1;
+        int divisor = 2;
+
+        
+        while(true){
+            int ones = 0;
+            boolean isDivisible = false;
+            for(int i = 0; i < numbers.size(); ++i){
+                Integer n = numbers.get(i);
+                if(n == 1){
+                    ++ones;
+                } else{
+                    if(n % divisor == 0){
+                        isDivisible = true;
+                        n /= divisor;
+                    }
+    
+                    numbers.set(i, n);
+                }
+            }
+
+            if(isDivisible){
+                lcm *= divisor;
+            }
+
+            ++divisor;
+
+            if(ones == numbers.size()){
+                return lcm;
+            }
+        }
+    }
 }
